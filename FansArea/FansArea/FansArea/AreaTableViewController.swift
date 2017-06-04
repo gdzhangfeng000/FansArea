@@ -290,7 +290,7 @@ class AreaTableViewController: UITableViewController {
         
         if segue.identifier == "showAreaDetail"{
             
-            let dest = segue.destination as! AreadetailViewController
+            let dest = segue.destination as! DetailTableViewController
             dest.area = areas[tableView.indexPathForSelectedRow!.row]
             
         }
