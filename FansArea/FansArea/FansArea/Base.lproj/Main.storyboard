@@ -121,9 +121,29 @@
                                         <segue destination="1TX-hU-qXm" kind="presentation" identifier="showReview" id="15c-jc-XPi"/>
                                     </connections>
                                 </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jg3-OY-oNV">
+                                    <rect key="frame" x="270" y="66" width="40" height="40"/>
+                                    <color key="backgroundColor" red="1" green="0.21934934170000001" blue="0.1313786794" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="6PE-aG-8bk"/>
+                                        <constraint firstAttribute="width" constant="40" id="E7G-04-IBV"/>
+                                    </constraints>
+                                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <state key="normal" title="Button" image="map"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="20"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <segue destination="1za-NO-UVd" kind="show" identifier="showMap" id="FgU-KO-g7U"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
+                                <constraint firstItem="jg3-OY-oNV" firstAttribute="leading" secondItem="OoR-a8-2fT" secondAttribute="leading" id="72g-1n-YJ4"/>
+                                <constraint firstItem="jg3-OY-oNV" firstAttribute="top" secondItem="OoR-a8-2fT" secondAttribute="bottom" constant="16" id="Hyh-JB-DAz"/>
                                 <constraint firstItem="OoR-a8-2fT" firstAttribute="top" secondItem="7Y0-0V-lHS" secondAttribute="top" constant="10" id="jTH-wZ-Wga"/>
                                 <constraint firstAttribute="trailing" secondItem="OoR-a8-2fT" secondAttribute="trailing" constant="10" id="wHC-vA-7Xv"/>
                             </constraints>
@@ -310,7 +330,44 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CSb-Bf-vQk" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="w54-jw-fhJ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3401" y="99"/>
+            <point key="canvasLocation" x="3489" y="99"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="pr7-Yc-fwc">
+            <objects>
+                <viewController id="1za-NO-UVd" customClass="MapViewController" customModule="FansArea" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8eL-2r-kKJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="Hma-KC-gkQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PUU-Dl-JYf">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="erY-MF-gel">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <connections>
+                                    <outlet property="delegate" destination="1za-NO-UVd" id="gJu-tv-NMC"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="erY-MF-gel" secondAttribute="bottom" id="87C-7U-cdd"/>
+                            <constraint firstItem="erY-MF-gel" firstAttribute="leading" secondItem="PUU-Dl-JYf" secondAttribute="leading" id="Kh5-fy-EBC"/>
+                            <constraint firstItem="erY-MF-gel" firstAttribute="centerX" secondItem="PUU-Dl-JYf" secondAttribute="centerX" id="UbI-Wp-A4x"/>
+                            <constraint firstItem="erY-MF-gel" firstAttribute="centerX" secondItem="PUU-Dl-JYf" secondAttribute="centerX" id="lFh-x8-Ic1"/>
+                            <constraint firstItem="erY-MF-gel" firstAttribute="centerY" secondItem="PUU-Dl-JYf" secondAttribute="centerY" id="n2L-Bh-0fT"/>
+                            <constraint firstItem="erY-MF-gel" firstAttribute="top" secondItem="8eL-2r-kKJ" secondAttribute="bottom" id="pGI-KH-331"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="erY-MF-gel" id="cuA-6p-492"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nxt-e2-HDS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2696" y="869"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yPU-tn-Id7">
@@ -343,6 +400,7 @@
         <image name="dislike" width="64" height="64"/>
         <image name="good" width="128" height="128"/>
         <image name="great" width="128" height="128"/>
+        <image name="map" width="32" height="32"/>
         <image name="rating" width="128" height="128"/>
     </resources>
 </document>
