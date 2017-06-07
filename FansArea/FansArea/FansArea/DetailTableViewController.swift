@@ -10,6 +10,7 @@ import UIKit
 
 class DetailTableViewController: UITableViewController {
 
+    @IBOutlet weak var ratingBtn: UIButton!
     
     @IBOutlet weak var LargeImageView: UIImageView!
     
@@ -20,7 +21,23 @@ class DetailTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //背景颜色
         tableView.backgroundColor = UIColor(white: 0.98, alpha: 1)
+        //移除空行和分割线颜色
+        tableView.separatorColor = UIColor(white: 0.9, alpha: 1)
+        
+        //在viewDidLoad方法里加入
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
+        
+        //设置行高自适应
+        tableView.estimatedRowHeight = 40
+        tableView.rowHeight = UITableViewAutomaticDimension
+        
+        //每一页的头显示地区名称
+        self.title = area.name
+        
+        
+        
         
         LargeImageView.image = UIImage(named: area.image)
         
@@ -30,6 +47,8 @@ class DetailTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,11 +64,16 @@ class DetailTableViewController: UITableViewController {
         return 4
     }
 
-    
+    //单元格内容
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DeatilCell", for: indexPath) as! DetailTableViewCell
         
+        //单元格颜色
         cell.backgroundColor = UIColor.clear
+        
+        
+        
+        
         
         switch indexPath.row {
         case 0:
@@ -119,5 +143,15 @@ class DetailTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    //返回按钮 判断如果有选择评价，则图标更换
+    @IBAction func close (segue: UIStoryboardSegue)  {
+        let reviewVC = segue.source as! ReviewViewController
+        
+        if let rating = reviewVC.rating{
+            self.area.rating = rating
+            self.ratingBtn.setImage(UIImage(named: rating), for: .normal)
+        }
+    }
 
 }

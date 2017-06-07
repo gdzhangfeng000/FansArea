@@ -16,6 +16,7 @@
 		7A7A90E71ED5D38A0090625A /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7A90E61ED5D38A0090625A /* CustomTableViewCell.swift */; };
 		9D2A37EF1EE3E80C00B77E79 /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2A37EE1EE3E80C00B77E79 /* DetailTableViewController.swift */; };
 		9D2A37F11EE3EF7900B77E79 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2A37F01EE3EF7900B77E79 /* DetailTableViewCell.swift */; };
+		9D2D9D791EE82CDC0003FE5D /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2D9D781EE82CDC0003FE5D /* ReviewViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		7A7A90E61ED5D38A0090625A /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		9D2A37EE1EE3E80C00B77E79 /* DetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewController.swift; sourceTree = "<group>"; };
 		9D2A37F01EE3EF7900B77E79 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
+		9D2D9D781EE82CDC0003FE5D /* ReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				7A7A90D21ED5BA240090625A /* AppDelegate.swift */,
 				7A7A90D61ED5BA240090625A /* Main.storyboard */,
 				9D2A37F01EE3EF7900B77E79 /* DetailTableViewCell.swift */,
+				9D2D9D781EE82CDC0003FE5D /* ReviewViewController.swift */,
 				9D2A37EE1EE3E80C00B77E79 /* DetailTableViewController.swift */,
 				7A7A90E41ED5BB490090625A /* AreaTableViewController.swift */,
 				7A4A24621EDC633E007DE0E2 /* Area.swift */,
@@ -153,6 +156,7 @@
 			files = (
 				9D2A37F11EE3EF7900B77E79 /* DetailTableViewCell.swift in Sources */,
 				7A4A24631EDC633F007DE0E2 /* Area.swift in Sources */,
+				9D2D9D791EE82CDC0003FE5D /* ReviewViewController.swift in Sources */,
 				9D2A37EF1EE3E80C00B77E79 /* DetailTableViewController.swift in Sources */,
 				7A7A90E71ED5D38A0090625A /* CustomTableViewCell.swift in Sources */,
 				7A7A90E51ED5BB490090625A /* AreaTableViewController.swift in Sources */,
