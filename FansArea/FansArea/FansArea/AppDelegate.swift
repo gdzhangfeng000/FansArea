@@ -17,18 +17,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-//        
-//        //导航栏颜色
-//        UINavigationBar.appearance().barTintColor = UIColor(red: 242/255, green: 116/255, blue: 119/255, alpha: 1)
-//        UINavigationBar.appearance().tintColor    = UIColor.white
-//        
-//        //导航栏字体
-//        if let barFont = UIFont(name: "Avenir-Light", size: 24){
-//            UINavigationBar.appearance().titleTextAttributes = [
-//            NSFontAttributeName: barFont,
-//            NSForegroundColorAttributeName: UIColor.white
-//            ]
-//        }
+       
+        //导航栏颜色
+        UINavigationBar.appearance().barTintColor = UIColor(red: 242/255, green: 116/255, blue: 119/255, alpha: 1)
+        UINavigationBar.appearance().tintColor    = UIColor.white
+        
+        //导航栏字体
+        if let barFont = UIFont(name: "Avenir-Light", size: 24){
+            UINavigationBar.appearance().titleTextAttributes = [
+            NSFontAttributeName: barFont,
+            NSForegroundColorAttributeName: UIColor.white
+            ]
+        }
         
         
         return true
