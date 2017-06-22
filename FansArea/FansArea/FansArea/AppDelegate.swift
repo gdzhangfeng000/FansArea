@@ -20,11 +20,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
        
         //导航栏颜色
-        UINavigationBar.appearance().barTintColor = UIColor(red: 242/255, green: 116/255, blue: 119/255, alpha: 1)
+        UINavigationBar.appearance().barTintColor = UIColor(red: 67/255, green: 67/255, blue: 67/255, alpha: 1)
         UINavigationBar.appearance().tintColor    = UIColor.white
         
         //导航栏字体
-        if let barFont = UIFont(name: "Avenir-Light", size: 24){
+        if let barFont = UIFont(name: "Avenir-Light", size: 18){
             UINavigationBar.appearance().titleTextAttributes = [
             NSFontAttributeName: barFont,
             NSForegroundColorAttributeName: UIColor.white

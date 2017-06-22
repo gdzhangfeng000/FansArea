@@ -9,11 +9,12 @@
 import UIKit
 import CoreData
 
-class AreaTableViewController: UITableViewController {
+class AreaTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     
-    var areas: [AreaMO] = []
+    var areas: [AreaMO] = [
+    ]
 
-//    var fc: NSFetchedResultsController<AreaMO>
+    var fc: NSFetchedResultsController<AreaMO>!
     
 
  
@@ -23,7 +24,7 @@ class AreaTableViewController: UITableViewController {
         //列表页行高也自适应
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableViewAutomaticDimension
- 
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -33,56 +34,85 @@ class AreaTableViewController: UITableViewController {
         //返回按钮的样式,只有箭头
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
-//        fetchAllData2()
+        fetchAllData2()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        fetchAllData()
-       tableView.reloadData()
+//        fetchAllData()
+//        tableView.reloadData()
         
         
     }
     
-//    func fetchAllData2() {
-//        let request: NSFetchRequest<AreaMO> = AreaMO.fetchRequest()
-//        let sd = NSSortDescriptor(key: "name", ascending: true)
-//        request.sortDescriptors = [sd]
-//        
-//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//        let contex = appDelegate.persistentContainer.viewContext
-//        fc = NSFetchedResultsController(fetchRequest: request, managedObjectContext: contex, sectionNameKeyPath: nil, cacheName: nil)
-//        fc.delegate = self
-//        
-//        do {
-//            try fc.performFetch()
-//            if let object = fc.fetchedObjects{
-//                areas = object
-//                
-//            }
-//        } catch  {
-//            
-//            print(error)
-//        }
-//        
-//        
-//    }
-    
-
-    func fetchAllData() {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.beginUpdates()
         
-        do {
-            
-            areas = try appDelegate.persistentContainer.viewContext.fetch(AreaMO.fetchRequest())
-            
-        } catch  {
-            print(error)
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.endUpdates()
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .delete:
+            tableView.deleteRows(at: [indexPath!], with: .automatic)
+        case .insert:
+            tableView.insertRows(at: [newIndexPath!], with: .automatic)
+        case.update:
+            tableView.reloadRows(at: [indexPath!], with: .automatic)
+        default:
+            tableView.reloadData()
+        }
+        
+        if let objects = controller.fetchedObjects{
+            areas = objects as! [AreaMO]
         }
     }
     
     
+    
+    func fetchAllData2() {
+        let request: NSFetchRequest<AreaMO> = AreaMO.fetchRequest()
+        let sd = NSSortDescriptor(key: "name", ascending: true)
+        request.sortDescriptors = [sd]
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let contex = appDelegate.persistentContainer.viewContext
+//        fc = NSFetchedResultsController(fetchRequest: request, managedObjectContext: contex, sectionNameKeyPath: nil, cacheName: nil)
+        fc = NSFetchedResultsController(fetchRequest: request, managedObjectContext: contex, sectionNameKeyPath: nil, cacheName: nil)
+        fc.delegate = self
+        
+        do {
+            try fc.performFetch()
+            if let objects = fc.fetchedObjects{
+                areas = objects
+                
+            }
+        } catch  {
+            
+            print(error)
+        }
+        
+        
+    }
+    
+
+//    func fetchAllData() {
+//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//        
+//        do {
+//            
+//            areas = try appDelegate.persistentContainer.viewContext.fetch(AreaMO.fetchRequest())
+//            
+//        } catch  {
+//            print(error)
+//        }
+//    }
+//    
+//    
     
     
 //【有没有内存警告⚠️】
@@ -179,8 +209,11 @@ class AreaTableViewController: UITableViewController {
         //(删除按钮)
         let actionDel = UITableViewRowAction(style: .destructive, title: "删除") { (_, indexPath) in
             
-            self.areas.remove(at:indexPath.row)
+//            self.areas.remove(at:indexPath.row)
             
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let contex = appDelegate.persistentContainer.viewContext.delete(self.fc.object(at: indexPath))
+            appDelegate.saveContext()
             
 //            print("删除后剩下的区域", self.areas.count)
 //            
@@ -190,7 +223,7 @@ class AreaTableViewController: UITableViewController {
             
         //界面
         // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
+//            tableView.deleteRows(at: [indexPath], with: .fade)
         }
         
         

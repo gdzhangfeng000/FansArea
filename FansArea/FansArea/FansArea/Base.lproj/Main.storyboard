@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--粉丝区域-->
+        <!--爱情日记-->
         <scene sceneID="JbS-6S-HVC">
             <objects>
                 <tableViewController id="dUp-KQ-JYc" customClass="AreaTableViewController" customModule="FansArea" customModuleProvider="target" sceneMemberID="viewController">
@@ -81,7 +81,7 @@
                             <outlet property="delegate" destination="dUp-KQ-JYc" id="Cb4-4Y-rcS"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="粉丝区域" id="gs1-UG-QpP">
+                    <navigationItem key="navigationItem" title="爱情日记" id="gs1-UG-QpP">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="vIV-fZ-oFp">
                             <connections>
                                 <segue destination="ZJx-Q5-9OA" kind="presentation" identifier="addArea" id="QRO-sr-YQR"/>
