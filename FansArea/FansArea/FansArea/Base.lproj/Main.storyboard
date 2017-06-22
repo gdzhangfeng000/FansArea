@@ -467,17 +467,23 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wiy-jj-Bhl">
+                                                <button opaque="NO" tag="8001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wiy-jj-Bhl">
                                                     <rect key="frame" x="16" y="34" width="30" height="30"/>
                                                     <color key="backgroundColor" red="1" green="0.21934934170000001" blue="0.1313786794" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <state key="normal" title="是"/>
+                                                    <connections>
+                                                        <action selector="isVisitedTap:" destination="wVY-hu-HpU" eventType="touchUpInside" id="cTJ-Rp-cFZ"/>
+                                                    </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JIs-Hs-Mtw">
+                                                <button opaque="NO" tag="8002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JIs-Hs-Mtw">
                                                     <rect key="frame" x="54" y="34" width="30" height="30"/>
                                                     <color key="backgroundColor" red="1" green="0.21934934170000001" blue="0.1313786794" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <state key="normal" title="否"/>
+                                                    <connections>
+                                                        <action selector="isVisitedTap:" destination="wVY-hu-HpU" eventType="touchUpInside" id="xYK-22-xqv"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -501,12 +507,21 @@
                     <navigationItem key="navigationItem" title="新增" id="pzL-Zs-L8f">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="lV7-Vv-THW">
                             <connections>
-                                <segue destination="u67-rv-wpd" kind="unwind" unwindAction="closeWithSegue:" id="T9i-Nj-ret"/>
+                                <segue destination="u67-rv-wpd" kind="unwind" identifier="unwindToHomeList" unwindAction="closeWithSegue:" id="T9i-Nj-ret"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="0oM-Kw-LbS">
+                            <connections>
+                                <action selector="saveTap:" destination="wVY-hu-HpU" id="qkT-4b-eZ1"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="coverImageView" destination="c6W-w4-Lzj" id="nqi-BX-7yQ"/>
+                        <outlet property="labelVisited" destination="J3v-Oc-l16" id="uc5-NQ-ntL"/>
+                        <outlet property="tfName" destination="7pd-KF-PXi" id="f3H-ju-K3N"/>
+                        <outlet property="tfPart" destination="kEF-Uh-Glj" id="MOb-8B-rd4"/>
+                        <outlet property="tfProvince" destination="Cum-7H-oFd" id="Q5N-VT-onh"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Npg-dt-5yZ" userLabel="First Responder" sceneMemberID="firstResponder"/>

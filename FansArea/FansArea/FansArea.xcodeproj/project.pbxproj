@@ -19,6 +19,7 @@
 		9D2D9D791EE82CDC0003FE5D /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2D9D781EE82CDC0003FE5D /* ReviewViewController.swift */; };
 		9D2D9D7C1EE8485A0003FE5D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D2D9D7B1EE8485A0003FE5D /* MapKit.framework */; };
 		9D2D9D7E1EE8505C0003FE5D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2D9D7D1EE8505B0003FE5D /* MapViewController.swift */; };
+		9D919D821EFAA04C007EBADD /* FansArea.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9D919D801EFAA04C007EBADD /* FansArea.xcdatamodeld */; };
 		9DCE5AD91EF4146600DF3EF9 /* AddAreaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCE5AD81EF4146600DF3EF9 /* AddAreaController.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +39,7 @@
 		9D2D9D781EE82CDC0003FE5D /* ReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		9D2D9D7B1EE8485A0003FE5D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		9D2D9D7D1EE8505B0003FE5D /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		9D919D811EFAA04C007EBADD /* FansArea.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FansArea.xcdatamodel; sourceTree = "<group>"; };
 		9DCE5AD81EF4146600DF3EF9 /* AddAreaController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAreaController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -74,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				7A7A90D21ED5BA240090625A /* AppDelegate.swift */,
+				9D919D801EFAA04C007EBADD /* FansArea.xcdatamodeld */,
 				7A7A90D61ED5BA240090625A /* Main.storyboard */,
 				9DCE5AD81EF4146600DF3EF9 /* AddAreaController.swift */,
 				9D2A37F01EE3EF7900B77E79 /* DetailTableViewCell.swift */,
@@ -183,6 +186,7 @@
 				9D2D9D791EE82CDC0003FE5D /* ReviewViewController.swift in Sources */,
 				9D2A37EF1EE3E80C00B77E79 /* DetailTableViewController.swift in Sources */,
 				7A7A90E71ED5D38A0090625A /* CustomTableViewCell.swift in Sources */,
+				9D919D821EFAA04C007EBADD /* FansArea.xcdatamodeld in Sources */,
 				7A7A90E51ED5BB490090625A /* AreaTableViewController.swift in Sources */,
 				7A7A90D31ED5BA240090625A /* AppDelegate.swift in Sources */,
 				9D2D9D7E1EE8505C0003FE5D /* MapViewController.swift in Sources */,
@@ -354,6 +358,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9D919D801EFAA04C007EBADD /* FansArea.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9D919D811EFAA04C007EBADD /* FansArea.xcdatamodel */,
+			);
+			currentVersion = 9D919D811EFAA04C007EBADD /* FansArea.xcdatamodel */;
+			path = FansArea.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 7A7A90C71ED5BA230090625A /* Project object */;
 }

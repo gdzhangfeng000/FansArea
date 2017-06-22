@@ -15,7 +15,7 @@ class DetailTableViewController: UITableViewController {
     @IBOutlet weak var LargeImageView: UIImageView!
     
     
-    var area: Area!
+    var area: AreaMO!
     
     
     override func viewDidLoad() {
@@ -39,7 +39,7 @@ class DetailTableViewController: UITableViewController {
         
         
         
-        LargeImageView.image = UIImage(named: area.image)
+        LargeImageView.image = UIImage(data: area.image as! Data)
         
 
         // Uncomment the following line to preserve selection between presentations

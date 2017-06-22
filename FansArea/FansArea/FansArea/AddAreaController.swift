@@ -7,12 +7,54 @@
 //
 
 import UIKit
+import CoreData
 
 class AddAreaController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    var area: AreaMO!
+    var isVisited = false
     
     @IBOutlet weak var coverImageView: UIImageView!
     
+    
+    @IBAction func saveTap(_ sender: UIBarButtonItem) {
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        area = AreaMO(context: appDelegate.persistentContainer.viewContext)
+        area.name = tfName.text
+        area.part = tfPart.text
+        area.isVisited = isVisited
+        area.province = tfProvince.text
+        
+        if let imgeData = UIImageJPEGRepresentation(coverImageView.image!, 0.7){
+            
+            area.image = NSData(data: imgeData)
+            
+        }
+        print("正在保存")
+        appDelegate.saveContext()
+        
+        performSegue(withIdentifier: "unwindToHomeList", sender: self)
+    }
+    
+    @IBAction func isVisitedTap(_ sender: UIButton) {
+        
+        if sender.tag == 8001 {
+            isVisited = true
+            labelVisited.text = "我来过"
+        } else {
+            isVisited = false
+            labelVisited.text = "没有来过"
+        }
+    }
+    
+    
+    @IBOutlet weak var labelVisited: UILabel!
+    
+    @IBOutlet weak var tfName: UITextField!
+    @IBOutlet weak var tfProvince: UITextField!
+    @IBOutlet weak var tfPart: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
